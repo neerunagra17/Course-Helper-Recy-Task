@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neerus's Portfolio</title>
+    <link rel="icon" href="profile.jpeg">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/ec9650aca1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="nav-bar">
+        <span class="left">Neeru</span>
+        <div class="right-items">
+        <a href="index.html" class="items">Home</a>
+        <a href="AboutMe.html" class="items">About Me</a>
+        <a href="Skills&Experience.html" class="items">Skills & Experience</a>
+        <a href="Contact.html" class="items">Contact Me</a>
+        </div>
+    </div>
+    <section id="countdown">
+        <h2>New Year's Countdown!</h2>
+        <div id="timer">
+            <span id="days">00</span> Days 
+            <span id="hours">00</span> Hours 
+            <span id="minutes">00</span> Minutes 
+            <span id="seconds">00</span> Seconds
+        </div>
+    </section>
+    <!-- Add this inside your body tag, for example after the countdown section -->
+    <button id="previewBtn" onclick="showHappyNewYear()" style="display:none;">Preview New Year</button>
+
+    <!-- This message will be displayed when the New Year arrives -->
+    <p id="newYearMessage" style="display:none;">Happy New Year!</p>
+
+    <div class="content">
+        <img src="profile.jpeg" alt="profile-pic" class="center-pic" height="550">
+        <div class="center lines">
+            <h1 class="bio1">Myself <span id="bio-name">Neeru,</span></h1>
+            <pre class="bio2">Welcome to my official portfolio! 
+    This is where I showcase my educational background, 
+    skills, experiences, and interests, providing a comprehensive view 
+    of my educational journey and personal passions. </pre>
+            <a href="https://www.instagram.com/neeru__17?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                <i class="fa-brands fa-instagram fa-xl" style="color: #dd2a7b;" id="profile-icons"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/neeru-nagra-9327a5309/" alt="linkedin icon">
+                <i class="fa-brands fa-linkedin fa-xl" style="color: #0077b5;" id="profile-icons"></i>
+            </a>
+            <a href="https://github.com/neerunagra17">
+                <i class="fa-brands fa-square-github fa-xl" style="color: #ffffff;" id="profile-icons"></i>
+            </a>
+        </div>
+    </div>    
+    </div>
+
+    <!-- JavaScript for Countdown Timer and Button -->
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Dec 31, 2024 23:59:59").getTime();
+
+        // Update the countdown every 1 second
+        var x = setInterval(function() {
+
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            // If the countdown is over, display a message and show the button
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "EXPIRED";
+                document.getElementById("previewBtn").style.display = "block"; // Show the button after countdown ends
+            }
+        }, 1000);
+
+        // Function to display the "Happy New Year!" message when the button is clicked
+        function showHappyNewYear() {
+            console.log("Button clicked!"); // Log to console when the button is clicked
+            document.getElementById("newYearMessage").style.display = "block"; // Show the message
+            document.getElementById("previewBtn").style.display = "none"; // Hide the button after clicking
+        }
+    </script>
+</body>
+</html>
